@@ -11,6 +11,7 @@
 
 import * as io from 'socket.io-client';
 import { CONST } from './const/const';
+import SocketIOClientWrapper from './wrappers/socket.io-client-wrapper';
 
 export class Network {
 
@@ -92,13 +93,13 @@ export class Network {
   }
 
   private setupLogging(): void {
-    var onevent = this.socket.onevent;
-    this.socket.onevent = function (packet) {
+    var onevent = SocketIOClientWrapper.onevent(this.socket);
+    SocketIOClientWrapper.setOnevent(this.socket, function (packet) {
       var args = packet.data || [];
       onevent.call(this, packet);    // original call
       packet.data = ["*"].concat(args);
       onevent.call(this, packet);      // additional call to catch-all
-    };
+    });
 
     this.socket.on("*", function (event, data:any) {
       console.log("> " + event + (data == null ? "" : ": " + JSON.stringify(data)) );
