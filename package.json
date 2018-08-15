@@ -1,0 +1,35 @@
+{
+  "name": "phaser3-ts-pong",
+  "productName": "phaser3-ts-pong",
+  "version": "1.0.0",
+  "main": "phaser3-ts-pong.js",
+  "devDependencies": {
+    "expose-loader": "0.7.5",
+    "ts-loader": "4.4.2",
+    "typescript": "2.9.2",
+    "webpack": "4.15.0",
+    "webpack-cli": "3.0.8",
+    "webpack-dev-server": "3.1.4",
+    "socket.io": "^1.7.3",
+    "express": "^4.15.2",
+    "@types/express": "^4.11.1",
+    "@types/socket.io": "^1.4.36",
+    "@types/socket.io-client": "^1.4.32"
+  },
+  "dependencies": {
+    "phaser": "3.10.1"
+  },
+  "scripts": {
+    "dev": "webpack --mode development && webpack-dev-server --mode development",
+    "build": "webpack --mode production && webpack-dev-server --mode production"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nka1024/phaser3-ts-pong.git"
+  },
+  "author": "Kirill Nepomnyaschiy <https://github.com/nka1024>",
+  "bugs": {
+    "url": "https://github.com/nka1024/phaser3-ts-pong/issues"
+  },
+  "homepage": "https://github.com/nka1024/phaser3-ts-pong#readme"
+}
